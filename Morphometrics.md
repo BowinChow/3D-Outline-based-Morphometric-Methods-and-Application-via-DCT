@@ -30,6 +30,8 @@ f(x) = \frac{a_0}{2}+\sum_{1}^{\infty}{a_n\cos(nx)+b_n\sin(nx)},\space x \in (-\
 \end{equation}
 $$
 
+Then, we calculate the coefficients:
+
 
 
 ## Landmark-based GMM
