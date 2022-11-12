@@ -20,9 +20,9 @@
 
 
 
-## Outline-base GMM
+## Outline-based geometric morphometrics (GMM)
 
-### Fourier Transform
+### Fourier Series
 
 $$
 \begin{equation}
@@ -32,7 +32,29 @@ $$
 
 Then, we calculate the coefficients:
 
+The constant in formula 1.1:
+$$
+\begin{equation}
+a_0 = \frac{1}{2\pi}\int_{-\pi}^{\pi}f(x)dx\space.
+\tag{1.2}
+\end{equation}
+$$
+$$a_n$$ is:
+$$
+\begin{equation}
+a_n = \frac{1}{\pi}\int_{-\pi}^{\pi}f(x)\cos(nx)dx\space(n = 1,2,...,\infty).
+\tag{1.3}
+\end{equation}
+$$
 
 
-## Landmark-based GMM
+$$b_n$$ is:
+$$
+\begin{equation}
+b_n = \frac{1}{\pi}\int_{-\pi}^{\pi}f(x)\sin(nx)dx\space(n = 1,2,...,\infty).
+\tag{1.4}
+\end{equation}
+$$
+
+## Landmark-based  geometric morphometrics (GMM)
 
