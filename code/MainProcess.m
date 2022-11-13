@@ -78,14 +78,9 @@ function pushbutton1_Callback(hObject, eventdata, handles)
 % hObject    handle to pushbutton1 (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
-x = 0:0.1:2*pi;
-y = sin(x);
-y2 = cos(2*x);
-plot(x,y,".");
-hold on
-plot(x,y2,"r:");
-axis equal;
-grid on
+NDcurve = evalin('base','s1.NDcurve');
+[coefficients,max_n]=DCT_fitting(NDcurve,30);
+assignin('base','coef',coefficients);
 
 
 % --- Executes on button press in pushbutton2.
@@ -93,12 +88,15 @@ function pushbutton2_Callback(hObject, eventdata, handles)
 % hObject    handle to pushbutton2 (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
-[filename,pathname]=uigetfile({'*.jpg','样本文件(*.jpg)';'*,*','所有文件(*.*)'},'请选择一个样本文件');
-if isequal(filename,0)||isequal(pathname,0)
-    return;
-end
- 
-FileName_AVI            = [pathname,filename];
+[filename,pathname,filterindex]=uigetfile('*.mat','打开数据');
+strcat([pathname filename]); 
+s1 = load (strcat([pathname filename])); %strcat是组成路径的，记不得是不是这么写了。
+assignin('base', 's1', s1)
+
+
+
+
+
 
 
 % --- Executes on button press in pushbutton3.
