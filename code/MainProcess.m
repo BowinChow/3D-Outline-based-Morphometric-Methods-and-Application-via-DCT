@@ -93,6 +93,12 @@ function pushbutton2_Callback(hObject, eventdata, handles)
 % hObject    handle to pushbutton2 (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
+[filename,pathname]=uigetfile({'*.jpg','样本文件(*.jpg)';'*,*','所有文件(*.*)'},'请选择一个样本文件');
+if isequal(filename,0)||isequal(pathname,0)
+    return;
+end
+ 
+FileName_AVI            = [pathname,filename];
 
 
 % --- Executes on button press in pushbutton3.
@@ -123,3 +129,4 @@ function edit2_CreateFcn(hObject, eventdata, handles)
 if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
     set(hObject,'BackgroundColor','white');
 end
+%to be continued.
