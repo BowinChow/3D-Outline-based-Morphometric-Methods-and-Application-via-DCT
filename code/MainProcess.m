@@ -79,7 +79,7 @@ function pushbutton1_Callback(hObject, eventdata, handles)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 NDcurve = evalin('base','s1.NDcurve');
-[coefficients,max_n]=DCT_fitting(NDcurve,30);
+[coefficients,max_n]=DCT_fitting(NDcurve,90);
 assignin('base','coef',coefficients);
 
 

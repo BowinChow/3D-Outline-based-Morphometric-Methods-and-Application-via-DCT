@@ -10,11 +10,12 @@ if dim==3
     n2=[];
     n3=[];
 %     m=input('please input the number of harmonic:');
-    for i=1:1
+    for i=1:N
         Z{i}=NDcurve{i}';
         [x{i},coef(i,1:m),n1(i)]=dct_open(Z{i}(:,1),m);
         [y{i},coef(i,m+1:2*m),n2(i)]=dct_open(Z{i}(:,2),m);
         [z{i},coef(i,2*m+1:3*m),n3(i)]=dct_open(Z{i}(:,3),m);
+        if i == 1
         plot3(Z{i}(:,1),Z{i}(:,2),Z{i}(:,3),'r','linewidth',2)
         hold on
         plot3(x{i},y{i},z{i},'b--','linewidth',2)
@@ -24,6 +25,7 @@ if dim==3
         xlabel('X','fontsize',16)
         ylabel('Y','fontsize',16)
         zlabel('Z','fontsize',16)
+        end
 %         % Drawing the fitting results in different axis
 %         P{i}=NDcurve{i}';
 %         figure
