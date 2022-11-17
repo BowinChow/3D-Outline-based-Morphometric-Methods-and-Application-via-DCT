@@ -16,7 +16,7 @@ if dim==3
         [y{i},coef(i,m+1:2*m),n2(i)]=dct_open(Z{i}(:,2),m);
         [z{i},coef(i,2*m+1:3*m),n3(i)]=dct_open(Z{i}(:,3),m);
         if i == 1
-        plot3(Z{i}(:,1),Z{i}(:,2),Z{i}(:,3),'b','linewidth',2)
+        plot3(Z{i}(:,1),Z{i}(:,2),Z{i}(:,3),'g','linewidth',2)
         hold on
         plot3(x{i},y{i},z{i},'m:','linewidth',2)
         legend('Original curve','Fitted curve')
@@ -25,6 +25,7 @@ if dim==3
         xlabel('X','fontsize',10)
         ylabel('Y','fontsize',10)
         zlabel('Z','fontsize',10)
+        view(-50,60);
         end
 %         % Drawing the fitting results in different axis
 %         P{i}=NDcurve{i}';

@@ -84,6 +84,7 @@ NDcurve = evalin('base','s1.NDcurve');
 N= evalin('base','N');
 [coefficients,max_n]=DCT_fitting(NDcurve,N);
 assignin('base','coef',coefficients);
+[dis] = PlotError(N,NDcurve);
 
 
 % --- Executes on button press in pushbutton2.
@@ -91,9 +92,6 @@ function pushbutton2_Callback(hObject, eventdata, handles)
 % hObject    handle to pushbutton2 (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
-close all
-h0 = figure('toolbar','none','position',[300 200 700 300],'name','实例01');
-axes('parent',h0,'visible','off');
 [filename,pathname,filterindex]=uigetfile('*.mat','打开数据');
 strcat([pathname filename]); 
 s1 = load (strcat([pathname filename])); %strcat是组成路径的，记不得是不是这么写了。
