@@ -23,7 +23,9 @@ for m=1:M
 end
 for i=1:1
     figure(i)
-    plot(dis(:,i),'ro:','linewidth',2);
+    c = Hex2RGB('#FFA1C4');
+    
+    plot(dis(:,i),':','color',c,'linewidth',2);
 %     axis equal
     grid on
     legend('Error')
