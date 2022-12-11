@@ -1,28 +1,26 @@
-# *An Introduction of Morphometrics*
+# *形态测量学入门*
 
-## Mathematical Fundamental
+## 数学基础
 
-### Basic knowledge of ***MATRIX***
-
-
-
-### Geometry Differential 
+### 基本的矩阵知识
 
 
 
-### Machine Learning /Deep Learning
+### 微分几何
 
 
 
-### Statistical Analysis
+### 机器学习
+
+### 统计学分析
 
 
 
 
 
-## Outline-based geometric morphometrics (GMM)
+## 基于轮廓的形态测量学方法
 
-### Fourier Series
+### 傅里叶级数
 
 $$
 \begin{equation}
@@ -56,5 +54,21 @@ b_n = \frac{1}{\pi}\int_{-\pi}^{\pi}f(x)\sin(nx)dx\space(n = 1,2,...,\infty).
 \end{equation}
 $$
 
-## Landmark-based  geometric morphometrics (GMM)
+
+
+通过一幅图来观察傅里叶级数是如何对曲线进行近似。图中引入的是$$[0,2\pi]$$ 区间内的矩形波函数：
+$$
+\begin{equation}
+f(x)=\left\{
+\begin{aligned}
+ 1 & &{t \in [0,\pi]}\\
+ -1 & &{t \in (\pi,2\pi]}
+\end{aligned}
+\right.
+\tag{1.5}
+\end{equation}
+$$
+![image-20221211135927790](C:\Users\Bowin\AppData\Roaming\Typora\typora-user-images\image-20221211135927790.png)
+
+## 基于标志点的形态测量学方法
 
