@@ -140,43 +140,25 @@ end
 
 % --- Executes on button press in PCAButton.
 function PCAButton_Callback(hObject, eventdata, handles)
-   
+   close all
     load fisheriris;
-    X = meas;                 % n = 150, m = 4
-    meanX = ones(size(X,1), 1) * mean(X);  % 中心化处理
+    X = meas;  
+    PCAVisualization(meas,2,species);
     
-    centredX = X - meanX;
-    
-    C = cov(centredX);	        % 直接调用cov直接计算协方差矩阵即可
-    
-    [W, Lambda] = eig(C);       % W是特征向量组成的矩阵（4×4），Lambda是特征值组成的对角矩阵
-    ev = (diag(Lambda))';		% 提取特征值
-    ev = ev(:, end:-1:1);		    % eig计算出的特征值是升序的，这里手动倒序（W同理）
-    W = W(:, end:-1:1);
-    sum(W.*W, 1)             % 可以验证每个特征向量各元素的平方和均为
-    
-    Wr = W(:, 1:2);             % 提取前两个主成分的特征向量
-    Tr = centredX * Wr;         %  新坐标空间的数据点
+    % n = 150, m = 4
+
 %     % 作图
 %     figure;
 %     stairs(cumsum(ev)/sum(ev), 'LineWidth',1.5);
 %     axis([1 4 0 1]);
 %     xlabel('$ k $', 'Interpreter', 'latex');
-%     ylabel('$ f(k)=\frac{\sum _{i=1}^i \lambda_k}{\sum_{i=1}^m \lambda_i} $',...
-%         'Interpreter', 'latex');
-%     hold on;
-%     plot([1 4], [0.95 0.95], '--');  % 从图中可以看出，r为方差贡献率，取r = 2
-    figure;
-    scatter(Tr(:,1), Tr(:,2), 180, categorical(species), '.');
-    colormap(winter);
-    xlabel('PC 1');
-    ylabel('PC 2');
-    [U, Sigma, V] = svd(X);              % 可以检验，W和V完全相同（向量的正负号不影响）
-    Vr = V(:, 1:2);                      % 提取前两个主成分的特征向量
-    Tr = X * Vr;                        % 新坐标空间的数据点
-    % 画图部分同上
-    % [loadings, scores] = pca(X, 'NumComponents', r);
-    [Wr, Tr, ev] = pca(X, 'NumComponents',2);   % 画图部分
-    axis equal
-    grid on
+%     ylabel('$ f(k)=\frac{\sum _{i=1}^i \lambda_k}{\sum_{i=1}^m \lambda_i} $',.
+%     [U, Sigma, V] = svd(X);              % 可以检验，W和V完全相同（向量的正负号不影响）
+%     Vr = V(:, 1:2);                      % 提取前两个主成分的特征向量
+%     Tr = X * Vr;                        % 新坐标空间的数据点
+%     % 画图部分同上
+%     % [loadings, scores] = pca(X, 'NumComponents', r);
+%     [Wr, Tr, ev] = pca(X, 'NumComponents',2);   % 画图部分
+%     axis equal
+%     grid on
 
