@@ -2,7 +2,8 @@ function [ind,max_n]=surfacePlot(newCurve,curve,bestPath)
 %UNTITLED 此处显示有关此函数的摘要
 %   此处显示详细说明
 N=length(newCurve{1});
-[~,max_n]=DCT_fitting(newCurve,N);
+[max_n]=DCT_fitting(newCurve,N);
+max_n
 [coefficients,curve_fitted,ind] = DCT_Surface_Union(newCurve,max_n);
 for i=1:length(curve)
     temp=[];
@@ -12,6 +13,6 @@ for i=1:length(curve)
     end
     FS{i}=temp;
 end
-SurfaceReconstructionS1(curve{1},FS{1});
+SurfaceReconstructionS1(curve{2},FS{2});
 end
 

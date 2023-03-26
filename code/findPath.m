@@ -97,6 +97,8 @@ bestPath = evalin('base','bestPath');
 
 curve = evalin('base','surfaceData.curve');
 [index,MAX_N]=surfacePlot(NCurve,curve,bestPath);
+index
+length(index)
 set(findPath,'Visible','on');
 
 

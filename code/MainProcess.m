@@ -82,7 +82,7 @@ axes(handles.axes1);
 cla reset;
 NDcurve = evalin('base','s1.NDcurve');
 N= evalin('base','N');
-[coefficients,max_n]=DCT_fitting(NDcurve,N);
+[coefficients,max_n]=DCT_fitting_curve(NDcurve,N);
 assignin('base','coef',coefficients);
 [dis] = PlotError(N,NDcurve);
 
@@ -169,6 +169,7 @@ function surfaceMatch_Callback(hObject, eventdata, handles)
 % hObject    handle to surfaceMatch (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
+clear
 [filename,pathname,filterindex]=uigetfile('*.mat','打开数据');
 strcat([pathname filename]); 
 s1 = load (strcat([pathname filename])); %strcat是组成路径的，记不得是不是这么写了。
