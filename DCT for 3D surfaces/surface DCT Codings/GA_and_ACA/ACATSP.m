@@ -15,11 +15,11 @@ for i=1:n
 end
 %%==================The process of ACA======================================================
 %%============== STEP1 Initialize the PARAs in ACA==============
-iter_max=200;   % Maximum Iterrations
-m=60;           % The number of ants
+iter_max=100;   % Maximum Iterrations
+m=10;           % The number of ants
 Alpha=1;        % Parameters characterizing the importance of pheromones
 Beta=5;         % Parameters characterizing the importance of heuristic factors
-Rho=0.7;        % Pheromone evaporation factor
+Rho=0.9;        % Pheromone evaporation factor
 Q=20;           % Pheromone increase intensity factor
 Eta=1./D;          % Eta is the visibility factor, set here as the reciprocal of the distance
 Tau=ones(n,n);     % Tau is the pheromone matrix, initialized to 1
@@ -83,9 +83,11 @@ while nC<=iter_max    %One of the stopping conditions: reaching the maximum numb
     R_best(nC,:)=Tabu(pos(1),:);
     L_ave(nC)=mean(L);
     % Shortest_Route=[Shortest_Route Shortest_Route(1)];
-    plot([C( R_best(nC,:),1)],[C( R_best(nC,:),2)],'o-');
+    plot3([C( R_best(nC,:),1)],[C( R_best(nC,:),2)],[C( R_best(nC,:),3)],'o:', 'MarkerSize', 5, 'MarkerFaceColor', 'g','linewidth',2);
+    view(50,-10);
+     grid on
     drawnow
-    grid on
+   
     %Find the average distance of the kth iteration
     nC=nC+1;
     
@@ -112,11 +114,11 @@ Shortest_Length=L_best(Pos(1))
 figure(1)   %Iterations
 x=linspace(0,iter_max,iter_max);
 y=L_best(:,1);
-plot(x,y,'-','LineWidth',2);
+plot(x,y,':','LineWidth',2);
 xlabel('Iterations'); ylabel('Thelength of shortest path');
 bestPath=Shortest_Route;
 figure(2)   %Plot the shortest path
-plot3([C(Shortest_Route,1)],[C(Shortest_Route,2)],[C(Shortest_Route,3)],'o-');
+plot3([C(Shortest_Route,1)],[C(Shortest_Route,2)],[C(Shortest_Route,3)],'o:', 'MarkerSize', 5, 'MarkerFaceColor', 'g','linewidth',2);
 axis equal
 for i = 1:size(C,1)
     text(C(i,1),C(i,2),C(i,3),['   ' num2str(i)]);

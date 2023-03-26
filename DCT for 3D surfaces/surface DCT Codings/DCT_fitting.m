@@ -1,6 +1,7 @@
 function [max_harmonic] = DCT_fitting(NDcurve,m)
 N=length(NDcurve);
 dim=size(NDcurve{1},1);
+dim
 if dim==3
     x=[];
     y=[];
@@ -19,16 +20,7 @@ if dim==3
         [x{i},coef(i,1:m),n1(i)]=dct_open(Z{i}(:,1),m);
         [y{i},coef(i,m+1:2*m),n2(i)]=dct_open(Z{i}(:,2),m);
         [z{i},coef(i,2*m+1:3*m),n3(i)]=dct_open(Z{i}(:,3),m);
-        plot3(Z{i}(:,1),Z{i}(:,2),Z{i}(:,3),'ro')
         
-        hold on
-        plot3(x{i},y{i},z{i},'bo')
-        legend('Originsl surface','Fitted surface')
-        grid on
-        axis equal
-        xlabel('X','fontsize',16)
-        ylabel('Y','fontsize',16)
-        zlabel('Z','fontsize',16)
         %         % Drawing the fitting results in different axis
         %         P{i}=NDcurve{i}';
         %         figure

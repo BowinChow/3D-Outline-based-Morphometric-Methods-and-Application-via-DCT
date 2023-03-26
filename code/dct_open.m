@@ -10,7 +10,7 @@ X = dct2(x);
 % 
 % X(ind(Needed+1:end)) = 0;
 i = 1;
-while (norm(X(1:i))/norm(X))<0.99
+while (norm(X(1:i))/norm(X))<0.999
     i = i+1;
 end
 coef = X(1:Needed);

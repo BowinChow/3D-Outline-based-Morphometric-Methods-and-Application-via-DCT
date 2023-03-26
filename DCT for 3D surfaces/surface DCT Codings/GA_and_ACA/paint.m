@@ -33,7 +33,7 @@ else
     zDots = points(3,:);
     %figure(1);
     title('TSP-GA');
-    plot3(xDots,yDots, zDots,'bo', 'MarkerSize', 6, 'MarkerFaceColor', 'b');
+    plot3(xDots,yDots, zDots,'go', 'MarkerSize', 6, 'MarkerFaceColor', 'g');
     xlabel('X');
     ylabel('Y');
     zlabel('Z');
@@ -50,7 +50,7 @@ else
         bestZ(1,j) = points(3,bestPopPath(1,j));
     end
     title('GA_TSP');
-    plot3(bestX(1,:),bestY(1,:),bestZ(1,:), 'r:', 'LineWidth', 2);
+    plot3(bestX(1,:),bestY(1,:),bestZ(1,:), 'b:', 'LineWidth', 2);
     legend('Points', 'The best path');
     axis equal
     grid on

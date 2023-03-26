@@ -4,7 +4,7 @@ close all
 N=length(newCurve{1});
 [max_n]=DCT_fitting(newCurve,N);
 [coefficients,curve_fitted,ind] = DCT_Surface_Union(newCurve,max_n);
-[res,res_val,res_sort] = calResidual(newCurve,curve_fitted);
+% [res,res_val,res_sort] = calResidual(newCurve,curve_fitted);
 
 for i=1:length(curve)
     temp=[];

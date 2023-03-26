@@ -22,7 +22,7 @@ function varargout = MainProcess(varargin)
 
 % Edit the above text to modify the response to help MainProcess
 
-% Last Modified by GUIDE v2.5 18-Mar-2023 14:43:19
+% Last Modified by GUIDE v2.5 25-Mar-2023 17:46:54
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -162,3 +162,16 @@ function PCAButton_Callback(hObject, eventdata, handles)
 %     axis equal
 %     grid on
 
+
+
+% --- Executes on button press in surfaceMatch.
+function surfaceMatch_Callback(hObject, eventdata, handles)
+% hObject    handle to surfaceMatch (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+[filename,pathname,filterindex]=uigetfile('*.mat','打开数据');
+strcat([pathname filename]); 
+s1 = load (strcat([pathname filename])); %strcat是组成路径的，记不得是不是这么写了。
+assignin('base', 'surfaceData', s1);
+set(findPath,'Visible','on');
+close(MainProcess);
