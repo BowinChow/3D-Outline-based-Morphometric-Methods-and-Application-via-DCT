@@ -8,5 +8,5 @@ c = zeros(1, 3);
 for i = 1:3
     c(i) = 16 * (nums(2*i-1) - 1) + (nums(2*i) - 1);
 end
-c = RGB2MatlabColor(c);
+c = RGB2Color(c);
 end

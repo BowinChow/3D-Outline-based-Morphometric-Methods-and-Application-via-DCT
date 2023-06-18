@@ -92,7 +92,7 @@ function pushbutton2_Callback(hObject, eventdata, handles)
 % hObject    handle to pushbutton2 (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
-[filename,pathname,filterindex]=uigetfile('*.mat','打开数据');
+[filename,pathname,~]=uigetfile('*.mat','打开数据');
 strcat([pathname filename]); 
 s1 = load (strcat([pathname filename])); %strcat是组成路径的，记不得是不是这么写了。
 assignin('base', 's1', s1)

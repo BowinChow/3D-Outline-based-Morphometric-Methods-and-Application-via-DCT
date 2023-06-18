@@ -18,15 +18,13 @@
 % end
 % hold off
 % end
-
-[all_themes, all_colors] = GetColors();
 % 类似subplot
 
-for j = 1 : 6
+for j = 1 : 1
   figure;
     DemoPlot();
     % 这里修改一下颜色顺序colororder即可
-    set(gca, 'colororder', all_themes{j});
+ 
 end
 
 function DemoPlot()
@@ -34,7 +32,8 @@ function DemoPlot()
 x = 1:100;
 y = log(x);
 for i = 1:6
-    plot(x, y + 3*i, 'LineWidth', 5);
+    color = [255 123 100];
+    plot(x, y + 3*i, 'LineWidth', 5,'color', RGB2Color(color));
     hold on
 end
 hold off

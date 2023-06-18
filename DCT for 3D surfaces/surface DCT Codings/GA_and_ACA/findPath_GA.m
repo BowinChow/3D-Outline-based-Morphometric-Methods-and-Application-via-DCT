@@ -6,7 +6,7 @@ clc
 pts=curve{1};
 tStart = tic; % Timer
 ptsNum=size(pts,2);
-maxGEN = 1000;
+maxGEN = 200;
 popSize = 200; % GA group size
 crossoverProbabilty = 0.8; %Prob of crossover
 mutationProbabilty = 0.2; %Prob of mutation
